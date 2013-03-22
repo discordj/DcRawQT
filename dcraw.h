@@ -46,6 +46,17 @@ extern "C" {
    NO_JPEG disables decoding of compressed Kodak DC120 files.
    NO_LCMS disables the "-p" option.
  */
+#ifdef NODEPS
+#define NO_JASPER
+#define NO_JPEG
+#define NO_LCMS
+#endif
+#ifndef NO_JASPER
+#include <jasper/jasper.h>	/* Decode RED camera movies */
+#endif
+#ifndef NO_JPEG
+#include <jpeglib.h>		/* Decode compressed Kodak DC120 photos */
+#endif	
 #ifndef NO_JPEG
 #include <jpeglib.h>
 #endif
@@ -102,9 +113,12 @@ typedef unsigned long long UINT64;
 #define LONG_BIT (8 * sizeof (long))
 #endif
 
-#define ushort UshORt
-typedef unsigned char uchar;
-typedef unsigned short ushort;
+#if !defined(uchar)
+#define uchar unsigned char
+#endif
+#if !defined(ushort)
+#define ushort unsigned short
+#endif
 
 struct decode {
   struct decode *branch[2];
@@ -113,6 +127,7 @@ struct decode {
 
 struct tiff_ifd {
   int width, height, bps, comp, phint, offset, flip, samples, bytes;
+  int tile_width, tile_length;
 };// tiff_ifd[10];
 
 struct ph1 {
@@ -141,14 +156,14 @@ off_t    thumb_offset, meta_offset, profile_offset;
 unsigned thumb_length, meta_length, profile_length;
 unsigned thumb_misc, *oprof, fuji_layout, shot_select, multi_out;
 unsigned tiff_nifds, tiff_samples, tiff_bps, tiff_compress;
-unsigned black, maximum, mix_green, raw_color, zero_is_bad;
+unsigned black, cblack[4], maximum, mix_green, raw_color, zero_is_bad;
 unsigned zero_after_ff, is_raw, dng_version, is_foveon, data_error;
 unsigned tile_width, tile_length, gpsdata[32], load_flags;
 ushort raw_height, raw_width, height, width, top_margin, left_margin;
 ushort shrink, iheight, iwidth, fuji_width, thumb_width, thumb_height;
-int flip, tiff_flip, colors;
+int mask[8][4],flip, tiff_flip, colors;
 double pixel_aspect, aber[4], gamm[6];
-ushort (*image)[4], white[8][8], curve[0x10000], cr2_slice[3], sraw_mul[4];
+ushort *raw_image, (*image)[4], white[8][8], curve[0x10000], cr2_slice[3], sraw_mul[4];
 float bright, user_mul[4], threshold;
 int half_size, four_color_rgb, document_mode, highlight;
 int verbose, use_auto_wb, use_camera_wb, use_camera_matrix;

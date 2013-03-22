@@ -57,7 +57,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <AdditionalIncludeDirectories>.\GeneratedFiles;C:\Qt\Qt5.0.1\5.0.1\msvc2010\include;C:\Qt\Qt5.0.1\5.0.1\msvc2010\include\QtCore;C:\Qt\Qt5.0.1\5.0.1\msvc2010\include\QtGui;.\GeneratedFiles\$(Configuration);.\;C:\Documents and Settings\jbowes\My Documents\Visual Studio 2008\Projects\lcms-1.19\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>UNICODE;WIN32;QT_LARGEFILE_SUPPORT;QT_THREAD_SUPPORT;QT_CORE_LIB;DCRAWQT_LIBRARY;QT_GUI_LIB;NO_JPEG;DJGPP;USE_CIMG;NO_LCMS;QT_DLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>UNICODE;WIN32;QT_LARGEFILE_SUPPORT;QT_THREAD_SUPPORT;QT_CORE_LIB;DCRAWQT_LIBRARY;QT_GUI_LIB;NO_JPEG;DJGPP;USE_CIMG;NO_LCMS;QT_DLL;NODEPS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
     </ClCompile>
     <Link>
