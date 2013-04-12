@@ -24,12 +24,12 @@
 
 extern "C" {
 
-#define VERSION "8.99"
+#define VERSION "9.17"
 
 #ifndef _GNU_SOURCE
 #define _GNU_SOURCE
 #endif
-#define _USE_MATH_DEFINES
+//#define _USE_MATH_DEFINES
 #include <ctype.h>
 #include <errno.h>
 #include <fcntl.h>
@@ -144,7 +144,7 @@ typedef struct dcraw{
 
 FILE *ifp, *ofp;
 short order;
-const char *ifname;
+char *ifname;
 char *ofname;
 char *meta_data;
 char cdesc[5], desc[512], make[64], model[64], model2[64], artist[64];

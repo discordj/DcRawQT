@@ -9807,7 +9807,7 @@ int DcRawQT::themain (int argc, const char **argv, QByteArray *outArray)
       status = 1;
       goto cleanup;
     }
-    p->ifname = argv[arg];
+    p->ifname = (char *)argv[arg];
 
 	if(showProgress)
 		emit process_notify(QString("Opening File %1...").arg(p->ifname));
