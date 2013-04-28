@@ -161,3 +161,17 @@ pip-log.txt
 
 # Mac crap
 .DS_Store
+
+build-DcRawQT-Desktop_Qt_5_0_2_clang_64bit-Debug/Makefile
+
+*.o
+
+*.dylib
+
+build-DcRawQT-Desktop_Qt_5_0_2_clang_64bit-Debug/moc_dcrawqt.cpp
+
+build-DcRawQT-Desktop_Qt_5_0_2_clang_64bit-Debug/moc_dcrawqtoptions.cpp
+
+build-DcRawQT-Desktop_Qt_5_0_2_clang_64bit-Debug/moc_dcrimage.cpp
+
+build-DcRawQT-Desktop_Qt_5_0_2_clang_64bit-Debug/ui_dcrawqtoptions.h

@@ -12,11 +12,12 @@
 #include "dcrawqt.h"
 
 #ifdef USE_CIMG
-#include <CImg.h>
-using namespace cimg_library;
 #ifndef cimg_display
 #define cimg_display 0
 #endif
+#include "CImg.h"
+using namespace cimg_library;
+
 #endif
 
 #include "dcrawqt_global.h"

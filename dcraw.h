@@ -22,7 +22,9 @@
    C++ class cannot have non-const static local variables.
  */
 
+#ifdef __cplusplus
 extern "C" {
+#endif
 
 #define VERSION "9.17"
 
@@ -72,7 +74,7 @@ extern "C" {
 #ifdef DJGPP
 #define fseeko fseek
 #define ftello ftell
-#else
+#elif !__APPLE__
 #define fgetc getc_unlocked
 #endif
 #ifdef __CYGWIN__
@@ -183,8 +185,9 @@ static const double xyz_rgb[3][3] = {			/* XYZ from RGB */
   { 0.019334, 0.119193, 0.950227 } };
 static const float d65_white[3] = { 0.950456, 1, 1.088754 };
 
-
+#ifdef __cplusplus
 }
+#endif
 
 
 

@@ -2,7 +2,7 @@
 #define DCRAWQT_GLOBAL_H
 
 #include <QtCore/qglobal.h>
-#include <QtGui>
+//#include <QtGui>
 #include <QStringList>
 
 #if defined(DCRAWQT_LIBRARY)
